@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Game - Tebak Buah</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="game-container">
+      <h1>🎮 Tebak Buah!</h1>
+
+      <p class="game-subtitle">Tebak nama buah yang muncul!</p>
+
+      <div class="game-card">
+        <p id="nomorSoal">Buah 1 dari 4</p>
+
+        <img
+          id="gambarBuah"
+          src="images/Apel.png"
+          alt="Buah yang harus ditebak"
+        />
+
+        <h2>Pilih jawabanmu:</h2>
+
+        <div class="jawaban-container">
+          <button onclick="jawab('Apel')">🍎 Apel</button>
+          <button onclick="jawab('Jeruk')">🍊 Jeruk</button>
+          <button onclick="jawab('Pisang')">🍌 Pisang</button>
+          <button onclick="jawab('Semangka')">🍉 Semangka</button>
+        </div>
+
+        <p id="pesan"></p>
+
+        <p id="skor">Skor: 0</p>
+      </div>
+
+      <button class="back-button" onclick="kembali()">← Kembali</button>
+    </div>
+
+    <script>
+      const buah = [
+        {
+          nama: "Apel",
+          gambar: "images/Apel.png",
+        },
+        {
+          nama: "Jeruk",
+          gambar: "images/Jeruk.png",
+        },
+        {
+          nama: "Pisang",
+          gambar: "images/pisyang.jpeg",
+        },
+        {
+          nama: "Semangka",
+          gambar: "images/Semangka.png",
+        },
+      ];
+
+      let soalSekarang = 0;
+      let skor = 0;
+
+      function tampilkanSoal() {
+        document.getElementById("gambarBuah").src = buah[soalSekarang].gambar;
+
+        document.getElementById("gambarBuah").alt =
+          "Gambar " + buah[soalSekarang].nama;
+
+        document.getElementById("nomorSoal").textContent =
+          "Buah " + (soalSekarang + 1) + " dari " + buah.length;
+
+        document.getElementById("pesan").textContent = "";
+      }
+
+      function jawab(jawaban) {
+        const pesan = document.getElementById("pesan");
+
+        if (jawaban === buah[soalSekarang].nama) {
+          skor++;
+
+          pesan.textContent = "🎉 Benar! Hebat!";
+        } else {
+          pesan.textContent =
+            "❌ Salah! Jawaban yang benar adalah " + buah[soalSekarang].nama;
+        }
+
+        document.getElementById("skor").textContent = "Skor: " + skor;
+
+        setTimeout(() => {
+          soalSekarang++;
+
+          if (soalSekarang < buah.length) {
+            tampilkanSoal();
+          } else {
+            selesaiGame();
+          }
+        }, 1000);
+      }
+
+      function selesaiGame() {
+        document.querySelector(".game-card").innerHTML = `
+          <h2>🎉 Game Selesai!</h2>
+
+          <p class="skor-akhir">
+            Skor kamu:
+            <strong>${skor} / ${buah.length}</strong>
+          </p>
+
+          <button class="submit-button" onclick="ulangGame()">
+            🔄 Main Lagi
+          </button>
+        `;
+      }
+
+      function ulangGame() {
+        soalSekarang = 0;
+        skor = 0;
+
+        location.reload();
+      }
+
+      function kembali() {
+        window.location.href = "index.html";
+      }
+
+      tampilkanSoal();
+    </script>
+  </body>
+</html>

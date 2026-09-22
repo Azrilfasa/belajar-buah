@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kuis - Belajar Buah</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="kuis-container">
+      <h1>Kuis Buah</h1>
+      <p class="kuis-subtitle">Yuk, uji pengetahuanmu tentang buah!</p>
+
+      <div id="kuis"></div>
+
+      <button class="submit-button" onclick="periksaJawaban()">
+        Lihat Nilai
+      </button>
+
+      <div id="hasil" class="hasil"></div>
+
+      <button class="back-button" onclick="kembali()">← Kembali</button>
+    </div>
+
+    <script>
+      const soal = [
+        {
+          pertanyaan: "Buah apa yang memiliki rasa manis dan sedikit asam?",
+          pilihan: ["Apel", "Semangka", "Pisang", "Jeruk"],
+          jawaban: "Apel",
+        },
+        {
+          pertanyaan: "Buah apa yang mengandung banyak air?",
+          pilihan: ["Apel", "Semangka", "Pisang", "Jeruk"],
+          jawaban: "Semangka",
+        },
+        {
+          pertanyaan: "Buah apa yang termasuk ke dalam kelas berry?",
+          pilihan: ["Jeruk", "Apel", "Pisang", "Semangka"],
+          jawaban: "Pisang",
+        },
+        {
+          pertanyaan: "Buah apa yang memiliki rasa manis atau asam?",
+          pilihan: ["Semangka", "Jeruk", "Pisang", "Apel"],
+          jawaban: "Jeruk",
+        },
+        {
+          pertanyaan: "Manakah yang merupakan buah?",
+          pilihan: ["Apel", "Batu", "Kayu", "Kertas"],
+          jawaban: "Apel",
+        },
+      ];
+
+      const tempatKuis = document.getElementById("kuis");
+
+      soal.forEach((item, index) => {
+        let html = `
+          <div class="soal">
+            <h2>${index + 1}. ${item.pertanyaan}</h2>
+        `;
+
+        item.pilihan.forEach((pilihan) => {
+          html += `
+            <label class="pilihan">
+              <input
+                type="radio"
+                name="soal${index}"
+                value="${pilihan}"
+              />
+              ${pilihan}
+            </label>
+          `;
+        });
+
+        html += `</div>`;
+
+        tempatKuis.innerHTML += html;
+      });
+
+      function periksaJawaban() {
+        let skor = 0;
+
+        soal.forEach((item, index) => {
+          const jawaban = document.querySelector(
+            `input[name="soal${index}"]:checked`,
+          );
+
+          if (jawaban && jawaban.value === item.jawaban) {
+            skor++;
+          }
+        });
+
+        const nilai = skor * 20;
+
+        document.getElementById("hasil").innerHTML = `
+          🎉 Kamu mendapatkan <strong>${skor} / ${soal.length}</strong><br>
+          Nilai kamu: <strong>${nilai}</strong>
+        `;
+      }
+
+      function kembali() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,339 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f8ff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-bottom: 35px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.menu-card {
+  width: 250px;
+  min-height: 230px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  padding: 25px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+}
+
+.icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.menu-card h2 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.menu-card p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.materi-container {
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.materi-container h1 {
+  margin-bottom: 25px;
+}
+
+.buah-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+.buah-card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.buah-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  animation: melayang 2s ease-in-out infinite;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.buah-card img:hover {
+  transform: scale(1.2);
+}
+@keyframes melayang {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.buah-card h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.buah-card p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.back-button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 15px;
+  background: #f0f8ff;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
+}
+
+.deskripsi {
+  display: none;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.deskripsi.muncul {
+  display: block;
+  animation: muncul 0.4s ease;
+}
+
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kuis-container {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.kuis-container h1 {
+  margin-bottom: 10px;
+}
+
+.kuis-subtitle {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.soal {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.soal h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.pilihan {
+  display: block;
+  padding: 12px;
+  margin: 8px 0;
+  background: #f0f8ff;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pilihan:hover {
+  background: #e0f0ff;
+}
+
+.pilihan input {
+  margin-right: 10px;
+}
+
+.submit-button {
+  border: none;
+  padding: 14px 30px;
+  border-radius: 15px;
+  background: #4caf50;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+}
+
+.hasil {
+  margin-top: 25px;
+  padding: 20px;
+  background: white;
+  border-radius: 20px;
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.game-container {
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.game-container h1 {
+  margin-bottom: 10px;
+}
+
+.game-subtitle {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.game-card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.game-card > p:first-child {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.game-card img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  animation: melayangGame 2s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes melayangGame {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.game-card h2 {
+  margin-bottom: 20px;
+}
+
+.jawaban-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.jawaban-container button {
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  background: #f0f8ff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.jawaban-container button:hover {
+  transform: translateY(-3px);
+  background: #e0f0ff;
+}
+
+#pesan {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  min-height: 30px;
+}
+
+#skor {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.skor-akhir {
+  font-size: 24px;
+  margin: 25px 0;
+}
+
+@media (max-width: 600px) {
+  .jawaban-container {
+    grid-template-columns: 1fr;
+  }
+
+  .game-card img {
+    width: 170px;
+    height: 170px;
+  }
+}

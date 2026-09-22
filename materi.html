@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Materi - Belajar Buah</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="materi-container">
+      <h1>Mengenal Buah</h1>
+      <div class="buah-container">
+        <div class="buah-card">
+          <img
+            src="images/Apel.png"
+            alt="Gambar Apel"
+            onclick="tampilkanDeskripsi('apel')"
+          />
+          <h2>Apel Sigma</h2>
+          <p id="apel" class="deskripsi">
+            Apel merupakan buah yang memiliki rasa manis dan sedikit asam.
+          </p>
+        </div>
+
+        <div class="buah-card">
+          <img
+            src="images/Jeruk.png"
+            alt="Gambar Jeruk"
+            onclick="tampilkanDeskripsi('jeruk')"
+          />
+          <h2>Jeruks</h2>
+          <p id="jeruk" class="deskripsi">
+            Jeruk merupakan buah yang memiliki rasa manis atau asam.
+          </p>
+        </div>
+
+        <div class="buah-card">
+          <img
+            src="images/pisyang.jpeg"
+            alt="Gambar Pisang"
+            onclick="tampilkanDeskripsi('pisang')"
+          />
+          <h2>Pisyang Kucing</h2>
+          <p id="pisang" class="deskripsi">
+            Pisang merupakan buah yang termasuk ke kelas berry.
+          </p>
+        </div>
+
+        <div class="buah-card">
+          <img
+            src="images/Semangka.png"
+            alt="Gambar Semangka"
+            onclick="tampilkanDeskripsi('semangka')"
+          />
+          <h2>Semongkoo</h2>
+          <p id="semangka" class="deskripsi">
+            Semangka merupakan buah yang mengandung banyak air.
+          </p>
+        </div>
+      </div>
+
+      <button class="back-button" onclick="kembali()">← Kembali</button>
+    </div>
+
+    <script>
+      function tampilkanDeskripsi(id) {
+        const deskripsi = document.getElementById(id);
+        deskripsi.classList.toggle("muncul");
+      }
+      function kembali() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
