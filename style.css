@@ -102,7 +102,7 @@ h1 {
   cursor: pointer;
 }
 .buah-card img:hover {
-  transform: scale(1.2);
+  filter: brightness(1.1);
 }
 @keyframes melayang {
   0% {
@@ -335,5 +335,143 @@ h1 {
   .game-card img {
     width: 170px;
     height: 170px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 20px 0;
+    align-items: flex-start;
+  }
+
+  /* HOME */
+  .container {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 17px;
+    margin-bottom: 25px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .menu-card {
+    width: 100%;
+    min-height: 180px;
+    padding: 20px;
+  }
+
+  .icon {
+    font-size: 50px;
+  }
+
+  .menu-card h2 {
+    font-size: 23px;
+  }
+
+  .materi-container {
+    width: 92%;
+  }
+
+  .materi-container h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .buah-container {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .buah-card {
+    padding: 20px;
+  }
+
+  .buah-card img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .buah-card h2 {
+    font-size: 25px;
+  }
+
+  .buah-card p {
+    font-size: 16px;
+  }
+
+  .kuis-container {
+    width: 92%;
+  }
+
+  .kuis-container h1 {
+    font-size: 30px;
+  }
+
+  .kuis-subtitle {
+    font-size: 16px;
+  }
+
+  .soal {
+    padding: 20px;
+  }
+
+  .soal h2 {
+    font-size: 18px;
+  }
+
+  .pilihan {
+    padding: 14px 10px;
+    font-size: 16px;
+  }
+
+  .game-container {
+    width: 92%;
+  }
+
+  .game-container h1 {
+    font-size: 30px;
+  }
+
+  .game-subtitle {
+    font-size: 16px;
+  }
+
+  .game-card {
+    padding: 20px;
+  }
+
+  .game-card img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .game-card h2 {
+    font-size: 20px;
+  }
+
+  .jawaban-container {
+    grid-template-columns: 1fr;
+  }
+
+  .jawaban-container button {
+    width: 100%;
+    min-height: 48px;
+    font-size: 17px;
+  }
+
+  .back-button {
+    padding: 13px 25px;
+    font-size: 16px;
+    margin-top: 20px;
   }
 }
