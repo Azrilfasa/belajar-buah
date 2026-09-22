@@ -4,13 +4,21 @@
   padding: 0;
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: #f0f8ff;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px 0;
+  overflow-x: hidden;
 }
 
 .container {
@@ -79,7 +87,7 @@ h1 {
 
 .buah-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 25px;
   width: 100%;
 }
@@ -89,28 +97,33 @@ h1 {
   padding: 30px;
   border-radius: 25px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  margin: 0;
+  text-align: center;
+  min-width: 0;
 }
 
 .buah-card img {
   width: 200px;
   height: 200px;
+  max-width: 100%;
   object-fit: contain;
   margin-bottom: 15px;
   animation: melayang 2s ease-in-out infinite;
-  transition: transform 0.3s;
   cursor: pointer;
 }
+
 .buah-card img:hover {
   filter: brightness(1.1);
 }
+
 @keyframes melayang {
   0% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-15px);
   }
+
   100% {
     transform: translateY(0);
   }
@@ -124,23 +137,6 @@ h1 {
 .buah-card p {
   font-size: 18px;
   line-height: 1.7;
-}
-
-.back-button {
-  display: block;
-  margin: 30px auto 0;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 15px;
-  background: #f0f8ff;
-  font-size: 17px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: 0.2s;
-}
-
-.back-button:hover {
-  transform: translateY(-3px);
 }
 
 .deskripsi {
@@ -160,10 +156,28 @@ h1 {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.back-button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 15px;
+  background: white;
+  font-size: 17px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+}
+
+.back-button:hover {
+  transform: translateY(-3px);
 }
 
 .kuis-container {
@@ -266,6 +280,7 @@ h1 {
 .game-card img {
   width: 220px;
   height: 220px;
+  max-width: 100%;
   object-fit: contain;
   animation: melayangGame 2s ease-in-out infinite;
   margin-bottom: 15px;
@@ -291,7 +306,7 @@ h1 {
 
 .jawaban-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -327,34 +342,22 @@ h1 {
   margin: 25px 0;
 }
 
-@media (max-width: 600px) {
-  .jawaban-container {
-    grid-template-columns: 1fr;
-  }
-
-  .game-card img {
-    width: 170px;
-    height: 170px;
-  }
-}
-
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   body {
-    padding: 20px 0;
     align-items: flex-start;
+    padding: 25px 0;
   }
 
-  /* HOME */
   .container {
     width: 90%;
   }
 
   h1 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .subtitle {
-    font-size: 17px;
+    font-size: 18px;
     margin-bottom: 25px;
   }
 
@@ -366,6 +369,7 @@ h1 {
 
   .menu-card {
     width: 100%;
+    max-width: 400px;
     min-height: 180px;
     padding: 20px;
   }
@@ -380,29 +384,34 @@ h1 {
 
   .materi-container {
     width: 92%;
+    max-width: 500px;
   }
 
   .materi-container h1 {
-    font-size: 30px;
+    font-size: 32px;
     margin-bottom: 20px;
   }
 
   .buah-container {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
   }
 
   .buah-card {
+    width: 100%;
     padding: 20px;
   }
 
   .buah-card img {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
   }
 
   .buah-card h2 {
-    font-size: 25px;
+    font-size: 26px;
+    margin-bottom: 10px;
   }
 
   .buah-card p {
@@ -411,6 +420,7 @@ h1 {
 
   .kuis-container {
     width: 92%;
+    max-width: 600px;
   }
 
   .kuis-container h1 {
@@ -436,6 +446,7 @@ h1 {
 
   .game-container {
     width: 92%;
+    max-width: 600px;
   }
 
   .game-container h1 {
@@ -451,8 +462,8 @@ h1 {
   }
 
   .game-card img {
-    width: 160px;
-    height: 160px;
+    width: 170px;
+    height: 170px;
   }
 
   .game-card h2 {
@@ -473,5 +484,84 @@ h1 {
     padding: 13px 25px;
     font-size: 16px;
     margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 20px 0;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .materi-container {
+    width: 92%;
+  }
+
+  .materi-container h1 {
+    font-size: 30px;
+  }
+
+  .buah-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .buah-card img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .buah-card h2 {
+    font-size: 24px;
+  }
+
+  .buah-card p {
+    font-size: 15px;
+  }
+
+  .kuis-container {
+    width: 92%;
+  }
+
+  .soal {
+    padding: 17px;
+  }
+
+  .soal h2 {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .pilihan {
+    font-size: 15px;
+  }
+
+  .game-container {
+    width: 92%;
+  }
+
+  .game-card {
+    padding: 18px;
+  }
+
+  .game-card img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .game-card h2 {
+    font-size: 19px;
+  }
+
+  .jawaban-container button {
+    font-size: 16px;
+  }
+
+  .back-button {
+    width: auto;
+    font-size: 15px;
   }
 }
