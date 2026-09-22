@@ -338,7 +338,7 @@ h1 {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   body {
     padding: 20px 0;
     align-items: flex-start;
